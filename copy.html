@@ -1,0 +1,89 @@
+// var choicesList = $("<div>");
+    // choicesList.attr("class", "btn-group");
+    // for(var j=0; j < sunnyQuestions[i].choices.length; j++){
+    //     choicesList.append("<button class='choice'>"+sunnyQuestions[i].choices[j]+"</button>");
+    // };
+
+    
+
+    "<input type='radio' name='radioBtnChoice' class='radio' />"
+
+    var choicesList = $("<form>");
+        for (var j=0; j<sunnyQuestions[i].choices.length; j++){
+            var radioLabels = $("<label />");
+
+            radioLabels.append(sunnyQuestions[i].choices[j]);
+            choicesList.append(radioLabels);
+        };
+
+        // $("#question").on("click", ".choice", function(){
+            //     var $this = $(this);
+            //     var userChoice = ($this.text());
+            //     console.log(userChoice);
+        
+            //     // for (var i=0; i < sunnyQuestions.length; i++){
+            //     //     for(var k=0; k < sunnyQuestions[i].validAnswer.length; k++){
+            //             if(userChoice === sunnyQuestions.validAnswer){
+            //                 answerCorrect++;
+        
+            //                 console.log(answerCorrect);
+            //             };
+            //         // };
+            //     // };
+            // });
+
+
+            var radioButtons = "<input type='radio' name='radioBtnChoice' class='radio' />";
+
+            $(radioButtons).append(createButtons[j]);
+            choicesList.append(radioButtons);
+    
+            for (var k=0; k < sunnyQuestions[i].choices.length; k++){
+                var radioLabels = $("<label />");
+
+                $(radioLabels).append(sunnyQuestions[i].choices[k]);
+                $(radioButtons).append(radioLabels);
+            };
+
+            for (var j=0; j < createButtons.length; j++){
+                for (var k=0; k = sunnyQuestions[i].choices.length; k++){
+                    var radioButtons = $("<input type='radio' name='radioBtnChoice' class='radio' />");
+                    var radioLabels = $("<label />");
+
+                    radioButtons.append(createButtons[j]);
+                    radioLabels.append(sunnyQuestions[i].choices[k]);
+                    radioButtons.append(radioLabels);
+                    choicesList.append(radioButtons);
+                };
+            };
+
+
+            var choicesList = $("<form>");
+                for (var j=0; j < createButtons.length; j++){
+                    var radioButtons = $("<input type='radio' name='radioBtnChoice' class='radio' />");
+    
+                    radioButtons.append(createButtons[j]);
+                    
+                    for (var k=0; k = sunnyQuestions[i].choices.length; k++){
+                        var radioLabels = $("<label />");
+    
+                        radioLabels.append(sunnyQuestions[i].choices[k]);
+                        radioButtons.append(radioLabels);
+                        choicesList.append(radioButtons);
+                    };
+                    
+                };
+
+                for (var i=0; i < sunnyQuestions.length; i++){
+                    for(var k=0; k < sunnyQuestions[i].validAnswer.length; k++){
+                        var answer = $(sunnyQuestions[i].validAnswer[k]);
+                        var correctAnswer = (answer.text());
+        
+                        console.log(correctAnswer);
+                        if(userChoice === correctAnswer){
+                            answerCorrect++;
+        
+                            console.log(answerCorrect);
+                        };
+                    };
+                };
