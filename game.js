@@ -3,50 +3,50 @@ $(document).ready(function(){
     var question = 0;
     var answerCorrect = 0;
     var answerIncorrect = 0;
-    var count = 10;
+    var count = 300;
     var counter;
     // var createButtons = ["","","",""];
         // Questions
     var sunnyQuestions = [{
         question: "Who is Charlie infatuated with?",
         choices: ["Dee", "Frank", "The Waitress", "Artemis"],
-        validAnswer: "The Waitress",
+        validAnswer: 2,
         }, {
         question: "What was the reason Dennis gave for women wanting to join them on the boat?",
         choices: ["The implication", "The food", "The atmosphere", "The D.E.N.N.I.S. System"],
-        validAnswer: "The implication",
+        validAnswer: 0,
         }, {
         question: "What was the fruit Charlie tried for the first time?",
         choices: ["Apple", "Pear", "Banana", "Dragonfruit"],
-        validAnswer: "Pear",
+        validAnswer: 1,
         }, {
         question: "What animal does the gang often compare Dee to?",
         choices: ["A giraffe", "A praying mantis", "A bird", "A hippo"],
-        validAnswer: "A bird",
+        validAnswer: 2,
         }, {
         question: "What did Frank create in Vietnam in 1993?",
         choices: ["A brothel", "An amusement park", "A plantation", "A sweatshop"],
-        validAnswer: "A sweatshop",
+        validAnswer: 3,
         }, {
         question: "Dennis is asshole. Why Charlie hate?",
         choices: ["Dennis had relations with the waitress", "Dennis is a bastard man", "Dennis has a crappy car", "Dennis is related to Dee"],
-        validAnswer: "Dennis is a bastard man",
+        validAnswer: 1,
         }, {
         question: "What moniker does Dennis also go by?",
         choices: ["The Dentist", "Big Man", "The Nightman", "The Golden God"],
-        validAnswer: "The Golden God",
+        validAnswer: 3,
         }, {
         question: "Who pooped the bed?",
         choices: ["Charlie", "Mac", "Frank", "Cricket"],
-        validAnswer: "Frank",
+        validAnswer: 2,
         }, {
         question: "Uncle Jack is obsessed with what body part?",
         choices: ["Hands", "Feet", "Eyes", "Knees"],
-        validAnswer: "Hands",
+        validAnswer: 1,
         }, {
         question: "What is the movie the gang sees with the catchphrase 'No surrender, no retreat?' ?",
         choices: ["Lethal Weapon 5", "The Midnight Train", "Thundergun Express", "Pirhana"],
-        validAnswer: "Thundergun Express",
+        validAnswer: 2,
         }
         ];   
     // Start button initializes game, hides when clicked 
@@ -59,23 +59,23 @@ $(document).ready(function(){
    
     $("#question").on("click", ".choice", function(){
         var $this = $(this);
-        var userChoice = ($this.text());
+        var userChoice = ($this.index());
         console.log(userChoice);
+    });
 
-        for (var i=0; i < sunnyQuestions.length; i++){
-            for(var k=0; k < sunnyQuestions[i].validAnswer.length; k++){
-                var answer = $(sunnyQuestions[i].validAnswer[k]);
-                var correctAnswer = (answer.text());
+    for(var i=0; i < sunnyQuestions; i++){
+        for(var k=0; k < sunnyQuestions[i].validAnswer.length; k++){
+            var correctAnswer = (sunnyQuestions[i].validAnswer[k]);
 
-                console.log(correctAnswer);
-                if(userChoice === correctAnswer){
-                    answerCorrect++;
+            console.log(correctAnswer);
+            
+            if (userChoice === correctAnswer){
+                answerCorrect++;
 
-                    console.log(answerCorrect);
-                };
+                console.log(answerCorrect);
             };
         };
-    });
+    };
    
     // Timer function
     function timer(){
